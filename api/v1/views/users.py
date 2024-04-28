@@ -2,7 +2,7 @@ from api.v1 import db
 from models.user import User
 from flask import jsonify, make_response, request
 import sqlalchemy
-from sqlalchemy.exc import IntegrityError, SQLAlchemyError
+from sqlalchemy.exc import SQLAlchemyError
 
 # create a user
 def create_user():
@@ -32,7 +32,8 @@ def create_user():
 # get all users
 def get_users():
     try:
-        users = User.query.all()
+        print(User)
+        users = db.session.query(User).all()
         return make_response(jsonify([user.json() for user in users]), 200)
     except Exception as e:
         return make_response(jsonify({'message': f'Internal server error{str(e)}'}), 500)
@@ -40,7 +41,7 @@ def get_users():
 # get a user
 def get_user(id):
     try:
-        user = User.query.filter_by(id=id).first()
+        user = db.session.query(User).filter_by(id=id).first()
         if user:
             return make_response(jsonify({'user': user.json()}), 200)
         return make_response(jsonify({'message': 'User not found'}), 404)
@@ -50,24 +51,31 @@ def get_user(id):
 # update a user
 def update_user(id):
     try:
-        user = User.query.filter_by(id=id).first()
-        if user:
-            data = request.get_json()
-            user.first_name = data['first_name']
-            user.last_name = data['last_name']
-            user.username = data['username']
-            user.email = data['email']
-            user.password = data['password']
-            db.session.commit()
-            return make_response(jsonify({'message': 'User updated successfully'}), 200)
-        return make_response(jsonify({'message': 'User not found'}), 404)
-    except Exception:
-        return make_response(jsonify({'message': 'Error updating user'}), 500)
+        user = db.session.query(User).filter_by(id=id).first()
+        if not user:
+            return make_response(jsonify({'message': 'User not found'}), 404)
+        data = request.get_json()
+        if not data:
+            return make_response(jsonify({'message': 'No data provided'}), 400)
+        update_fields = {
+            'first_name': data.get('first_name'),
+            'last_name': data.get('last_name'),
+            'username': data.get('username'),
+            'email': data.get('email'),
+            'password': data.get('password'),
+        }
+        for key, value in update_fields.items():
+            if value is not None and key not in('id', 'created_at', 'updated_at'):
+                setattr(user, key, value)
+        db.session.commit()
+        return make_response(jsonify({'message': 'User updated successfully'}), 200)
+    except Exception as e:
+        return make_response(jsonify({'message': f'Error updating user{str(e)}'}), 500)
     
 # delete a user
 def delete_user(id):
     try:
-        user = User.query.filter_by(id=id).first()
+        user = db.session.query(User).filter_by(id=id).first()
         if user:
             db.session.delete(user)
             db.session.commit()
