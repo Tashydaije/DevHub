@@ -20,3 +20,13 @@ class User(BaseModel):
         self.username = username
         self.email = email
         self.password = password
+
+    def json(self):
+    # Return a dictionary representation of the user (excluding sensitive fields)
+        return {
+            "id": self.id,
+            "first_name": self.first_name,
+            "last_name": self.last_name,
+            "username": self.username,
+            "email": self.email
+        }
