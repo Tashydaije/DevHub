@@ -1,9 +1,11 @@
 from flask import Flask
 from api.v1.views import app_views, register_routes
 from api.v1 import db
+from flask_bcrypt import Bcrypt
 
 # Configure your Flask app
 app = Flask(__name__)
+bcrypt = Bcrypt(app)
 app.config.from_object('config.Config')
 db.init_app(app)
 # Call register_routes to define routes before registering blueprint
