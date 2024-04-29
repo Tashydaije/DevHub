@@ -23,9 +23,15 @@ class User(BaseModel):
         self.hash_password(password)
     
     def hash_password(self, password):
+        # hash provided password
         bcrypt = Bcrypt()
         self.password = bcrypt.generate_password_hash(password).decode('utf-8')
 
+    def verify_password(self, password):
+        # verify password
+        bcrypt = Bcrypt()
+        return bcrypt.check_password_hash(self.password, password)
+    
     def json(self):
     # Return a dictionary representation of the user (excluding sensitive fields)
         return {
