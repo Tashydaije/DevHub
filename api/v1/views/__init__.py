@@ -8,6 +8,8 @@ def register_routes(bp, app):
   #Register routes defined in this directory.
   from . import index  
   from . import users   
+  from . import auth
+  from . import dashboard
 
   # Register routes from imported files
   bp.route("/status")(index.api_status) 
@@ -18,3 +20,10 @@ def register_routes(bp, app):
   bp.route('/users/<id>', methods=['GET'])(users.get_user)
   bp.route('/users/<id>', methods=['PUT'])(users.update_user)
   bp.route('/users/<id>', methods=['DELETE'])(users.delete_user)
+
+  # Register Auth routes
+  bp.route('/login', methods=['POST'])(auth.login)
+  bp.route('/refresh', methods=['POST'])(auth.refresh)
+
+  # Register dashboard routes
+  bp.route('/dashboard', methods=['GET'])(dashboard.dashboard)
