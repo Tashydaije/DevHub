@@ -1,6 +1,7 @@
 from sqlalchemy import Column, String, Integer, DateTime
 from models.base_model import BaseModel
 from datetime import datetime
+from flask_bcrypt import Bcrypt
 
 class User(BaseModel):
     """User model for handling registration, login, and authentication"""
@@ -19,7 +20,11 @@ class User(BaseModel):
         self.last_name = last_name
         self.username = username
         self.email = email
-        self.password = password
+        self.hash_password(password)
+    
+    def hash_password(self, password):
+        bcrypt = Bcrypt()
+        self.password = bcrypt.generate_password_hash(password).decode('utf-8')
 
     def json(self):
     # Return a dictionary representation of the user (excluding sensitive fields)
