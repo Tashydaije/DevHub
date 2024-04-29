@@ -4,3 +4,4 @@ venv
 setup_mysql_dev.sql
 alembic.ini
 migrations
+*.pyc
