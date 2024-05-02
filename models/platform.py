@@ -11,3 +11,11 @@ class Platform(BaseModel):
     def __init__(self, name, api_url):
         self.name = name
         self.api_url = api_url
+
+    def json(self):
+        # return a dictionary represantation of the platform
+        return {
+            'id': self.id,
+            'name': self.name,
+            'api_url': self.api_url
+        }
