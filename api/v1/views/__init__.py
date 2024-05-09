@@ -11,9 +11,10 @@ def register_routes(bp, app):
   from . import auth
   from . import dashboard
   from . import platform
+  from . import accounts
 
   # Register routes from imported files
-  bp.route("/status")(index.api_status) 
+  bp.route("/index")(index.api_status) 
 
   # Register users routes
   bp.route('/users', methods=['POST'])(users.create_user)
@@ -30,4 +31,6 @@ def register_routes(bp, app):
   bp.route('/dashboard', methods=['GET'])(dashboard.dashboard)
 
   #Register Dev account connection routes
-  bp.route('/platform-conn', methods=['POST'])(platform.create_platform)
+  bp.route('/platform', methods=['POST'])(platform.create_platform)
+  bp.route('/accounts/connect', methods=['POST', 'GET'])(accounts.connect_account)
+  bp.route('/accounts/callback', methods=['GET', 'POST'])(accounts.handle_callback)
