@@ -7,3 +7,6 @@ pymysql
 Flask-Migrate
 Flask-JWT-Extended==4.6.0
 Flask-Bcrypt==1.0.1
+requests
+Flask-WTF
+Flask-Session
