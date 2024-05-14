@@ -1,6 +1,7 @@
 import requests
 from flask import make_response, jsonify, session
 from config import Config
+import json
 
 class OAuth2Client:
     # helper methods for handling OAuth2 authorization flows with different platforms
@@ -76,16 +77,25 @@ class OAuth2Client:
             if not platform_config:
                 return make_response(jsonify({'error': 'Invalid platform'}), 400)
             url = platform_config['url']
-            data = platform_config['params']
+            data = platform_config['data']
 
-            response = requests.post(url, data=data)
-            print(response)
+            try:
+                response = requests.post(url, data=data)
+                response.raise_for_status()  # This will raise an exception for non-2xx responses
 
-            if response.status_code == 200:
-                access_token_data = response.json()
-                return access_token_data.get('access_token')
-            else:
-                raise Exception('Failed to retrieve access token')
+                # Manual parsing instead of using response.json()
+                access_token = None
+                if response.content:
+                    content = response.content.decode('utf-8')  # Decode bytes to string
+                    for part in content.split('&'):
+                        key, value = part.split('=')
+                        if key == 'access_token':
+                            access_token = value.strip("'")  # Remove single quotes from value
+                            break  # Stop iterating after finding access_token
+                    return access_token
 
+            except requests.exceptions.RequestException as e:
+                print("Request failed:", e)
+                return None
         except Exception as e:
             return make_response(jsonify({'error': f'Failed to exchange authorization code: {e}'}), 500)

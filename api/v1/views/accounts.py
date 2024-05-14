@@ -1,5 +1,6 @@
 
 from flask import make_response, jsonify, request, session
+from flask_jwt_extended import jwt_required, get_jwt_identity
 from models.platform import Platform
 from models.account import Account
 from models.user import User
@@ -48,6 +49,7 @@ def connect_account():
     except Exception as e:
         return make_response(jsonify({'message': f'Internal server error {str(e)}'}), 500)
 
+@jwt_required()
 def handle_callback():
     try:
         code = request.args.get('code')
@@ -74,16 +76,20 @@ def handle_callback():
 
         # Exchange authorization code for access token
 
-        oauth_client = OAuth2Client(platform.api_url)
+        oauth_client = OAuth2Client(platform.oauth_url)
+        print(oauth_client)
         access_token = oauth_client.exchange_authorization_code(code, redirect_uri)
-        #print(access_token)
+        print(access_token)
 
         # Create or update user account
-        user_id = session.get('id')  # Replace with actual user ID from the session or authentication
+        user_id = get_jwt_identity()  # Replace with actual user ID from the session or authentication
+        if not user_id:
+            return make_response(jsonify({'error': 'User not logged in'}), 401)
         print(user_id)
+        refresh_token = ''
         account = db.session.query(Account).filter_by(platform_id=platform.id, user_id=user_id).first()
-        if not account:
-            account = Account(platform_id=platform.id, user_id=user_id, access_token=access_token)
+        if not account and user_id:
+            account = Account(platform_id=platform.id, user_id=user_id, access_token=access_token, refresh_token=refresh_token)
             db.session.add(account)
         else:
             account.access_token = access_token

@@ -7,6 +7,11 @@ PLATFORM_API_URLS = {
     'stackoverflow': 'https://api.stackexchange.com/',
 }
 
+PLATFORM_OAUTH_URLS = {
+    'github': 'https://github.com/login/oauth/access_token',
+    'stackoverflow': 'https://stackoverflow.com/oauth/access_token'
+}
+
 def create_platform():
     try:    
         platform_data = request.get_json()
@@ -25,9 +30,10 @@ def create_platform():
 
         # Retrieve API URL (if available)
         api_url = PLATFORM_API_URLS.get(name)
+        oauth_url = PLATFORM_OAUTH_URLS.get(name)
 
         # Create new platform
-        new_platform = Platform(name=name, api_url=api_url)
+        new_platform = Platform(name=name, api_url=api_url, oauth_url=oauth_url)
         db.session.add(new_platform)
         db.session.commit()
 
