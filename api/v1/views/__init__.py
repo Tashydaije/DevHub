@@ -14,7 +14,7 @@ def register_routes(bp, app):
   from . import accounts
 
   # Register routes from imported files
-  bp.route("/index")(index.api_status) 
+  bp.route("/index")(index.index) 
 
   # Register users routes
   bp.route('/users', methods=['POST'])(users.create_user)
