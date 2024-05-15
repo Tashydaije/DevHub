@@ -99,3 +99,5 @@ def handle_callback():
         return make_response(jsonify({'message': 'Account connected successfully'}), 201)
     except Exception as e:
         return make_response(jsonify({'message': f'Internal server error {str(e)}'}), 500)
+
+
