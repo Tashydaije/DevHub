@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+
+<body class="main">
+    <div class="container1">
+        <div class="signup">
+            <form method="post" action="signup.php">
+                <h1> Create Your DevHub Account</h1>
+                <div class="inputs">
+                    <label for="firstname">First Name</label> <br>
+                    <input type="text" name="firstname" required> </div>
+                <div class="inputs">
+                    <label for="lastname">Last Name</label> <br>
+                    <input type="text" name="lastname" required> </div>
+                <div class="inputs">
+                    <label for="username">Username</label> <br>
+                    <input type="text" name="username" required> </div>
+                <div class="inputs">
+                    <label for="email">Email</label> <br>
+                    <input type="email" name="email" required> </div>
+                <div class="inputs">
+                    <label for="password">Password</label> <br>
+                    <input type="password" name="password" pattern=".{8,}" title="Password should be Eight (8) or more characters" > </div>
+                <div class="inputs">
+                    <label for="password">Confirm Password</label> <br>
+                    <input type="password" name="password" pattern=".{8,}" title="Password should be Eight (8) or more characters" > </div>
+                <input type="submit" value="Sign Up">
+
+                <p>Have an account already? <a href="login.html"> Sign In</a></p>
+
+            </form>
+        </div>
+        <div class="signup"> <img src="https://res.cloudinary.com/benjee/image/upload/v1569253813/undraw_chore_list_iof3_s3yoyc.svg" alt="LOGO"/>
+        </div>
+    </div>
+</body>
+
+</html>

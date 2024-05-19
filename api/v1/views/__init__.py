@@ -15,6 +15,8 @@ def register_routes(bp, app):
 
   # Register routes from imported files
   bp.route("/index")(index.index) 
+  bp.route("/signup")(index.signup)
+  bp.route("/signin")(index.signin)
 
   # Register users routes
   bp.route('/users', methods=['POST'])(users.create_user)

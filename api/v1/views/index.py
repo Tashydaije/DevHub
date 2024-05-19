@@ -8,3 +8,11 @@ def api_status():
 #render landing page
 def index():
     return render_template('landing.html')
+
+#render sign-up page
+def signup():
+    return render_template('signup.html')
+
+#render login page
+def signin():
+    return render_template('login.html')
