@@ -1,0 +1,249 @@
+/* Styles for hero section */
+.hero {
+    background-color: navy;
+    color: white;
+    padding: 80px 0;
+}
+
+.hero .container {
+    display: flex;
+    justify-content: center;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    padding-top: 50px;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+.hero .row .col-md-6:first-child .btn { /* Enable flexbox for centering */
+    display: flex;
+    align-items: center; /* Align content vertically */ /* Align content horizontally */
+    width: 50%;
+}
+  
+.hero .row .col-md-6 img {
+    width: 100%; /* Set image width to 100% */
+    height: auto; /* Maintain image aspect ratio */
+}
+
+/* About Section */
+.about {
+    background-color: white;
+    padding: 80px 0; 
+}
+
+.about .text-wrapper {
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    padding: 20px;
+    border-left: 7px solid #ddd;
+    margin-left: 10px;
+    font-style: italic;
+}
+
+.about .text-wrapper p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.about .text-wrapper .quote::before {
+    content: "“";
+    font-size: 3em;
+    color: #333;
+    position: relative;
+    left: -20px;
+    top: 10px;
+}
+  
+.about .text-wrapper p.quote::after {
+    content: "”";
+    font-size: 3em;
+    color: #333;
+    position: relative;
+    right: -20px;
+    top: 10px;
+}
+.about .text-wrapper h2 {
+    font-size: 3rem;
+    padding: auto;
+}
+
+.about .image-wrapper {
+    width: 40%; 
+    height: 40%;
+    margin: 0 auto;
+}
+  
+.about .image-wrapper img {
+    width: 100%;
+    height: auto;
+    padding-top: 50px;
+}
+/* Features Section Styling */
+.features {
+    background-color: navy;
+    color: black;
+    padding: 80px 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.features h2 {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*.features-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}*/
+
+.features-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns */
+    grid-gap: 15px;
+    width: 100%;
+    height: auto;
+}
+
+.features-wrapper .feature-card img {
+    width: 100%;
+    height: 50%;
+    padding: auto;
+    margin-bottom: 30px;
+    border-radius: 5%;
+}
+
+.feature-card {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin: 15px;
+    border-radius: 5px;
+    height: 85%;
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    font-size: 1.1rem;
+}
+
+.CTA {
+    background-color: white;
+    color: navy;
+    padding: 80px 0;
+}
+
+.CTA h2 {
+    color: navy;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.CTA p {
+    text-align: center;
+    font-size: 1.5rem;
+    padding-top: 20px;
+    margin-right: 20px;
+}
+
+.CTA a {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    text-align: center;
+}
+
+.search-text-wrapper input[type="search"] {
+    width: 100%;  /* Fill available space */
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-top: 20px; /* Adjust spacing as needed */
+}
+  
+.search-text-wrapper input[type="search"]:focus {
+    outline: none; /* Remove default outline on focus */
+    border-color: #999; /* Change border color on focus */
+}
+
+.search-text-wrapper button {
+    background-color: #007bff; /* Blue background color */
+    color: #fff; /* White text color */
+    padding: 10px 20px; /* Adjust padding as needed */
+    border: none; /* Remove default button border */
+    border-radius: 5px; /* Add rounded corners */
+    margin-top: 10px; /* Adjust spacing above button */
+    cursor: pointer; /* Set cursor style to pointer */
+}
+
+.contact {
+    background-color: navy;
+    color: white;
+    padding: 80px 0;
+}
+
+.contact h2 {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.contact .col-md-6:first-child {
+    display: inline;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+}
+
+.contact .col-md-6:first-child a {
+    color: white;
+}
+
+.contact .col-md-6 h3 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.feedback-form textarea {
+    width: 100%; /* Maintain full width */
+    padding: 10px; /* Adjust padding as needed */
+    border: 1px solid #ccc; /* Adjust border for textarea */
+    border-radius: 5px; /* Add rounded corners */
+    /* Increase height */
+    height: 150px; /* Adjust height as needed */
+}
+
+.feedback-form button {
+    background-color: #007bff; /* Blue background color */
+    color: #fff; /* White text color */
+    padding: 10px 20px; /* Adjust padding as needed */
+    border: none; /* Remove default button border */
+    border-radius: 5px; /* Add rounded corners */
+    margin-top: 10px; /* Adjust spacing above button */
+    cursor: pointer; /* Set cursor style to pointer */
+}
+
+@media only screen and (max-width: 768px) {
+    .features-wrapper {
+      grid-template-columns: repeat(2, 1fr); /* Two columns on smaller screens */
+    }
+  }

@@ -7,7 +7,7 @@ from flask_wtf import FlaskForm
 from flask_session import Session
 
 # Configure your Flask app
-app = Flask(__name__, template_folder='../../templates')
+app = Flask(__name__, static_folder='../../static', template_folder='../../templates')
 bcrypt = Bcrypt(app)
 app.config.from_object('config.Config')
 db.init_app(app)
