@@ -1,3 +1,4 @@
+/* Landing page */
 /* Styles for hero section */
 .hero {
     background-color: navy;
@@ -171,27 +172,27 @@
 }
 
 .search-text-wrapper input[type="search"] {
-    width: 100%;  /* Fill available space */
+    width: 100%;
     padding: 10px 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 1rem;
-    margin-top: 20px; /* Adjust spacing as needed */
+    margin-top: 20px;
 }
   
 .search-text-wrapper input[type="search"]:focus {
-    outline: none; /* Remove default outline on focus */
-    border-color: #999; /* Change border color on focus */
+    outline: none; 
+    border-color: #999; 
 }
 
 .search-text-wrapper button {
-    background-color: #007bff; /* Blue background color */
-    color: #fff; /* White text color */
-    padding: 10px 20px; /* Adjust padding as needed */
-    border: none; /* Remove default button border */
-    border-radius: 5px; /* Add rounded corners */
-    margin-top: 10px; /* Adjust spacing above button */
-    cursor: pointer; /* Set cursor style to pointer */
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
 }
 
 .contact {
@@ -224,26 +225,128 @@
 }
 
 .feedback-form textarea {
-    width: 100%; /* Maintain full width */
-    padding: 10px; /* Adjust padding as needed */
-    border: 1px solid #ccc; /* Adjust border for textarea */
-    border-radius: 5px; /* Add rounded corners */
-    /* Increase height */
-    height: 150px; /* Adjust height as needed */
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 150px; 
 }
 
 .feedback-form button {
-    background-color: #007bff; /* Blue background color */
-    color: #fff; /* White text color */
-    padding: 10px 20px; /* Adjust padding as needed */
-    border: none; /* Remove default button border */
-    border-radius: 5px; /* Add rounded corners */
-    margin-top: 10px; /* Adjust spacing above button */
-    cursor: pointer; /* Set cursor style to pointer */
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 768px) {
     .features-wrapper {
-      grid-template-columns: repeat(2, 1fr); /* Two columns on smaller screens */
+      grid-template-columns: repeat(2, 1fr);
     }
-  }
+}
+
+/* Sign Up Page */
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap');
+
+* {
+    box-sizing:border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: Poppins;
+    
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+    background-color: navy;
+}
+
+.container1 {
+    width: 100vw;
+    height: 100vh;
+}
+
+.signup {
+    width: 45%;
+    display: inline;
+    float: left;
+    margin: 25px auto;
+    
+}
+
+.signup form {
+    background: white;
+    border: 2px solid inherit;
+    border-radius: 25px;
+    padding: 25px;
+    text-align: center;
+}
+
+.signup input[type="text"], input[type="email"], input[type="password"]{
+border: none;
+border-bottom: 2px solid navy;
+display: inline;
+outline: none;
+padding: 10px 0px 1px;
+margin: 10px auto 25px;
+width: 90%;
+color: navy;
+font-size: 20px;
+
+}
+
+.signup input:focus {
+outline: none;
+color: navy;
+background: white;
+} 
+
+.signup input[type=submit]{
+    border: none;
+    border-radius: 25px;
+    display: block;
+    background: navy;
+    padding: 10px 35px;
+    max-width: 90%;
+    color: white;
+    font-weight: bolder;
+    margin: 15px auto 10px;
+    }
+
+.signup .inputs {
+width: 45%;
+display:inline-block;
+margin: 2px auto;
+}
+
+.signup label {
+    color: navy;
+    align-items: left;
+}
+
+.signup form h1 {
+    color: navy;
+    font-weight: bolder;
+    margin: 10px 0px 20px;
+    width: 100%;
+}
+
+.signup form p {
+    color: black;
+    text-align: center;
+    margin: 10px;
+    width: 90%;
+}
+    
+.signup form a{
+    text-decoration: underline;
+    font-weight:bold;
+    color: navy;   
+    width: 90%; 
+}
+
+/* Login Page */
