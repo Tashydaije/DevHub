@@ -6,12 +6,44 @@
         <title>DevHub</title>
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <link rel="alternate icon" href="#" type="image/jpeg">
+        <link rel="stylesheet" href="/static/styles.css">
 
     </head>
     <body>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
         <header>
-
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#">DevHub</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Features
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Interactive Visualizations</a>
+                        <a class="dropdown-item" href="#">Customizable Filters</a>
+                        <a class="dropdown-item" href="#">Platform Authentication (and More!)</a>
+                        <a class="dropdown-item" href="#">Activity Metrics</a>
+                      </div>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Sign Up</a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
         </header>
         <main>
             <section class="hero">
@@ -23,13 +55,98 @@
                             <a href="#" class="btn btn-primary">Get Started Now</a>
                         </div>
                         <div class="col-md-6">
+                            <img src="/static/images/DevHub-hero.jpeg" alt="DevHub about image">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="about">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 image-wrapper">
+                            <img src="/static/images/about-devhub.jpeg" alt="DevHub about image">
+                        </div>
+                        <div class="col-md-6 text-wrapper">
+                            <h2>Unify your developer profile. Showcase your skills in one place.</h2>
+                            <p class="quote">DevHub is a platform for developers to bring their online presence together. Connect your accounts from GitHub, Stack Overflow, and more to create a comprehensive view of your coding history and technical expertise. DevHub makes it easy for recruiters to find you and for you to showcase your best work.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="features">
+                <div class="container">
+                    <h2>Empower Your Developer Story with Powerful Features</h2>
+                    <div class="features-wrapper">
+                        <div class="feature-card">
+                            <img src="/static/images/interactive-visual.jpeg" alt="Feature 1 image">
+                            <h3>Interactive Visualizations</h3>
+                            <p>See your contributions and coding journey represented through charts and graphs. Gain insights into your coding patterns and activity trends.</p>
+                        </div>
+                        <div class="feature-card">
+                            <img src="/static/images/customize.jpeg" alt="Feature 1 image">
+                            <h3>Customizable Filters</h3>
+                            <p>Focus your analysis on specific aspects of your development journey. Filter by platform, repository, timeframe, or other relevant criteria to get a granular view of your contributions.</p>
+                        </div>
+                        <div class="feature-card">
+                            <img src="/static/images/github.jpeg" alt="Feature 1 image">
+                            <h3>GitHub Authentication (and More!)</h3>
+                            <p>Connect your GitHub account securely using OAuth. DevHub also supports other platforms, allowing you to bring your entire developer profile together in one place.</p>
+                        </div>
+                        <div class="feature-card">
+                            <img src="/static/images/metrics.jpeg" alt="Feature 1 image">
+                            <h3>Activity Metrics</h3>
+                            <p>Track key metrics that showcase your coding activity. See your commits, contributions, and platform-specific data visualized for easy comprehension.</p>
+                        </div>
+                        <div class="feature-card">
+                            <img src="/static/images/demo-soon.jpeg" alt="Feature 1 image">
+                            <h3>Live Demo (Coming Soon!)</h3>
+                            <p>Experience DevHub's functionalities firsthand. A live demo will be available soon, so you can explore the platform and see how it can empower your developer profile.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="CTA">
+                <div class="container">
+                    <div class="cta-wrapper">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>Ready for your Dev journey? Don't miss out! Join the DevHub community today.</p>
+                                <a href="#" class="btn btn-primary">Sign Up</a>
                             </div>
+                            <div class="search-text-wrapper col-md-6">
+                              <h2>Search for Developers</h2>
+                              <p>Find talented developers by searching usernames or platform handles. Explore their profiles and discover their coding expertise.</p>
+                              <input type="search" placeholder="Search by username or handle">
+                              <button type="submit">Search</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="contact">
+                <div class="container">
+                    <h2>Contact Us</h2>
+                    <div class="contact-wrapper">
+                        <div class="row">
+                            <div class="contact-info col-md-6">
+                                <p>Feel free to reach out if you have any questions, feedback, or suggestions.</p>
+                                <ul>
+                                <li><a href="mailto:support@devhub.com">support@devhub.com</a></li>
+                                <li><a href="https://www.socialmedia.com/devhub">Follow us on Social Media</a></li>
+                                </ul>
+                            </div>
+                            <div class="feedback-form col-md-6">
+                                <h3>Leave Your Feedback</h3>
+                                <textarea name="feedback" rows="5" placeholder="Share your thoughts and suggestions..."></textarea>
+                                <button type="submit">Send Feedback</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
         </main>
         <footer>
-
+            <p>&copy; 2024 DevHub</p>
         </footer>
     </body>
 </html>
